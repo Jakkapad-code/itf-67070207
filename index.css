@@ -1,0 +1,47 @@
+/* index.css */
+
+body {
+    background-color: #eeeeee;
+    color: black;
+}
+
+div {
+    background-color: #ffffff;
+}
+
+nav {
+    background-color: #ffcc00;
+    padding: 5px;
+}
+
+nav a {
+    color: blue;
+}
+
+footer {
+    background-color: #ff6699;
+    color: white;
+}
+
+footer a {
+    color: yellow;
+}
+.container {
+    display: flex;
+    max-width: 800px;
+    margin: 20px;
+    border: 2px;
+}
+
+.title {
+    color: blue;
+    font-size: 24px;
+}
+
+.description {
+    color: rgb(255, 131, 131);
+}
+img {
+    width: 150px;
+    height: 150px;
+}
