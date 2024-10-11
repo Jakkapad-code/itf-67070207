@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stlye2.css">
+</head>
+<body>
+    <h1 class="contaner" id="username">my profile </h1>]
+
+    <div class="contaner">
+    <div class="profile" id = "profile">
+        <div class="notify">
+            <p>1</p>
+        </div> 
+    </div>
+    </div>
+
+    <div class="contaner">
+    <label>Set Username</label><input id = "input" type="text"><button onclick="setName()">set</button>
+    </div>
+    <div class="contaner">
+    <label>Set Username</label><input id = "input-url" type="text"><button onclick="setImg()">set</button>
+    </div>
+
+    <h1 class="contaner" id="username">phone number list</h1>
+    <div class="contaner">
+    <input type="text">
+    <input type="text">
+    <button onclick="addRow()">add</button></div>
+
+    <table class="table"  id="table">
+        <tr>
+            <th>name</th>
+            <th>phone</th>
+        </tr>
+    </table>
+
+    <script>
+        const name = document.getElementById("username")
+        const input = document.getElementById("input")
+        const profile = document.getElementById("profile")
+        const url = document.getElementById("input-url")
+        const table = document.getElementById("table")
+        function setName(){
+            name.textContent = input.value;
+            input.value = "";
+        }
+        function setImg(){
+            profile.style.backgroundImage = "url(" + url.value + ")";
+        }
+        function addRow(){
+            const row = document.createElement("tr");
+            const cell1 = document.createElement("td")
+            const cell2 = document.createElement("td")
+            cell1.textContent = "jasj"
+            cell2.textContent = "1244"
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            table.appendChild(row);
+        }
+        
+        </script>
+        
+</body>
+</html>
