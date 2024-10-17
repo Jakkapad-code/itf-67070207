@@ -4,45 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="stlye2.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <h1 class="contaner" id="username">my profile </h1>]
+    <h1 class="contaner" id="username">Hi Brother</h1>
 
     <div class="contaner">
     <div class="profile" id = "profile">
         <div class="notify">
             <p>1</p>
-        </div> 
+        </div>
     </div>
     </div>
 
     <div class="contaner">
-    <label>Set Username</label><input id = "input" type="text"><button onclick="setName()">set</button>
+        <label>Set Username</label><input id="input" type="text"><button onclick = "setName()">set</button>
     </div>
     <div class="contaner">
-    <label>Set Username</label><input id = "input-url" type="text"><button onclick="setImg()">set</button>
+        <label>Set Img :</label><input id="input-url" type="text"><button onclick ="setImg()">set</button>
     </div>
 
-    <h1 class="contaner" id="username">phone number list</h1>
+    <hi class="contaner" id="username">Phone Number List</hi>
     <div class="contaner">
-    <input type="text">
-    <input type="text">
-    <button onclick="addRow()">add</button></div>
+        <input id = "nametable" type="text">
+        <input id = "nametable1" type="text">
+    <button onclick="addRow()">Add</button><button onclick="saveCSV()">Export</button></div>
 
-    <table class="table"  id="table">
+    <div class="contaner">
+    <table class="table" id = "table" style="width:30%">
         <tr>
-            <th>name</th>
-            <th>phone</th>
+            <th style="width:2%">No.</th>
+            <th style="width:14%">Name</th>
+            <th style="width:14%">Phone</th>
         </tr>
     </table>
+    </div>
 
     <script>
-        const name = document.getElementById("username")
-        const input = document.getElementById("input")
-        const profile = document.getElementById("profile")
-        const url = document.getElementById("input-url")
+        const name = document.getElementById("username");
+        const input = document.getElementById("input");
+        const profile = document.getElementById("profile");
+        const url = document.getElementById("input-url");
         const table = document.getElementById("table")
+        var count = 0
+        const phonenumber = []
+
         function setName(){
             name.textContent = input.value;
             input.value = "";
@@ -51,17 +57,37 @@
             profile.style.backgroundImage = "url(" + url.value + ")";
         }
         function addRow(){
+            count += 1
             const row = document.createElement("tr");
-            const cell1 = document.createElement("td")
-            const cell2 = document.createElement("td")
-            cell1.textContent = "jasj"
-            cell2.textContent = "1244"
+            const cell1 = document.createElement("td");
+            const cell2 = document.createElement("td");
+            const cell3 = document.createElement("td");
+            const nametable = document.getElementById("nametable")
+            const nametable1 = document.getElementById("nametable1")
+            cell1.textContent = count;
+            cell2.textContent = nametable.value;
+            cell3.textContent = nametable1.value;
+            nametable.value = "";
+            nametable1.value = "";
             row.appendChild(cell1);
             row.appendChild(cell2);
+            row.appendChild(cell3);
             table.appendChild(row);
+            phonenumber.push([nametable.value,nametable1.value]);
         }
-        
-        </script>
-        
+        function saveCSV() {
+        const csvContent = phonenumber.map(row => row.join(",")).join("\n"); // Convert array to CSV string
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "data.csv");
+        link.style.visibility = "hidden";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        }
+    </script>
+
 </body>
 </html>

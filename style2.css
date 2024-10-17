@@ -1,0 +1,31 @@
+.profile{
+    width: 300px;
+    height: 300px;
+    background-image: url(https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg);
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+.notify{
+    width: 50px;
+    height: 50px;
+    background-color: palevioletred;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+}
+.contaner{
+    display: flex;
+    justify-content: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+table,th, td{
+    border: 1px solid black;
+}
